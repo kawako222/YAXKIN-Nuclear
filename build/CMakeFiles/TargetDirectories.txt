@@ -1,3 +1,0 @@
-/home/axmi222/Documentos/Proyecto/YAXKIN-Nuclear/build/CMakeFiles/yaxkin_core.dir
-/home/axmi222/Documentos/Proyecto/YAXKIN-Nuclear/build/CMakeFiles/edit_cache.dir
-/home/axmi222/Documentos/Proyecto/YAXKIN-Nuclear/build/CMakeFiles/rebuild_cache.dir

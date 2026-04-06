@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/axmi222/Documentos/Proyecto/YAXKIN-Nuclear/build",
-  "command": "/usr/bin/clang++-18  -isystem /usr/include/eigen3 -g -std=gnu++17 -o CMakeFiles/yaxkin_core.dir/src/core/engine/main.cpp.o -c /home/axmi222/Documentos/Proyecto/YAXKIN-Nuclear/src/core/engine/main.cpp",
-  "file": "/home/axmi222/Documentos/Proyecto/YAXKIN-Nuclear/src/core/engine/main.cpp",
-  "output": "CMakeFiles/yaxkin_core.dir/src/core/engine/main.cpp.o"
-}
-]

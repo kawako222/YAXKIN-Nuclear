@@ -1,0 +1,33 @@
+# --- Binarios y Compilación ---
+build/
+bin/
+obj/
+*.o
+*.a
+*.so
+*.out
+# Nombres específicos de tus ejecutables
+yaxkin_core
+src/core/engine/main
+
+# --- IDEs (VS Code) ---
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# --- Archivos del Sistema ---
+.DS_Store
+Thumbs.db
+
+# --- Python (Para las fases de IA) ---
+__pycache__/
+*.pyc
+.venv/
+env/
+
+# --- Logs y Datos temporales ---
+*.log
+data/raw/*
+!data/raw/.gitkeep

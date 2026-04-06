@@ -1,1 +1,0 @@
-/usr/bin/clang++-18 -g -Xlinker --dependency-file=CMakeFiles/yaxkin_core.dir/link.d CMakeFiles/yaxkin_core.dir/src/core/engine/main.cpp.o -o yaxkin_core
