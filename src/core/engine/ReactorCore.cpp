@@ -4,10 +4,18 @@
 namespace Yaxkin {
 
     ReactorCore::ReactorCore() : current_reactivity(0.0) {
+        base_temperature = 315.0; // Basado en el agua
+        t_coolant = 315.0;        // El agua debe estar a 315C para sacar 300MW
+        t_fuel = 375.0;           // El fuel debe estar a 375C para pasar calor al agua
+
+        // No pasaron la prueba de la derivada nula
+        /*
         base_temperature = 280.0;
         t_fuel = 280.0;     
         t_coolant = 280.0;  
-        
+        */
+
+
         // El vector crece a 11 dimensiones
         state = Eigen::VectorXd::Zero(11);
         state(0) = 1.0; 
@@ -89,9 +97,10 @@ namespace Yaxkin {
 
         for (int i = 0; i < sub_steps; ++i) {
             
+            
             // --- 1. Calcular Feedback de Reactividad Combinado ---
-            double feedback_fuel = (t_fuel - base_temperature) * NuclearConstants::ALPHA_FUEL;
-            double feedback_coolant = (t_coolant - base_temperature) * NuclearConstants::ALPHA_MOD;
+            double feedback_fuel = (t_fuel - 375.0) * NuclearConstants::ALPHA_FUEL;
+            double feedback_coolant = (t_coolant - 315.0) * NuclearConstants::ALPHA_MOD;
             
             // --- Aplicar el freno del Xenón ---
             double sigma_a_total = 0.1; 
@@ -100,8 +109,14 @@ namespace Yaxkin {
             static double initial_xenon_rho = xenon_rho; 
             double net_xenon_rho = xenon_rho - initial_xenon_rho;
 
+            // --- freno del Samario  ---
+            double samarium_rho = - (state(10) * NuclearConstants::SIGMA_A_SM) / sigma_a_total;
+            static double initial_samarium_rho = samarium_rho;
+            double net_samarium_rho = samarium_rho - initial_samarium_rho;
+            
             // La reactividad efectiva tiene en cuenta el calor y el veneno
             double effective_rho = current_reactivity + feedback_fuel + feedback_coolant + net_xenon_rho;
+            
 
             // --- 2. Integración Nuclear (RK4) ---
             Eigen::VectorXd k1 = computeDerivatives(state, effective_rho);

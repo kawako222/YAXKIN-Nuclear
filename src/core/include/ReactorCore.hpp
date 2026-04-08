@@ -19,6 +19,9 @@ namespace Yaxkin {
         double getPower() const { return state(0); }
         double getReactivity() const { return current_reactivity; }
         double getPrecursor(int index) const { return state(index + 1); }
+        // Getters para V&V Etapa 2
+        double getIodineConcentration() const { return state(7); }
+        double getXenonConcentration() const { return state(8); }
 
     private:
         // Vector de estado: 

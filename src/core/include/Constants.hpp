@@ -6,7 +6,7 @@ namespace Yaxkin {
     struct NuclearConstants {
         // --- CINÉTICA DE PUNTO (Precursores) ---
         static constexpr double PROMPT_GEN_TIME = 1.0e-4; 
-        static constexpr double TOTAL_BETA = 0.0065;
+        static constexpr double TOTAL_BETA = 0.00649;
         
         static constexpr double BETA_I[6] = {0.00021, 0.00142, 0.00127, 0.00257, 0.00075, 0.00027};
         static constexpr double LAMBDA_I[6] = {0.0124, 0.0305, 0.111, 0.301, 1.14, 3.01};
