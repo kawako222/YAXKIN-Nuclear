@@ -3,6 +3,19 @@
 #include "ReactorCore.hpp"
 
 int main() {
+    std::cout << "--- V&V ETAPA 1: EQUILIBRIO DE PRECURSORES ---\n";
+    
+    // Instanciamos el reactor (esto llama al constructor que queremos validar)
+    Yaxkin::ReactorCore reactor;
+
+    // Imprimimos los valores generados por el código
+    std::cout << std::fixed << std::setprecision(4);
+    for (int i = 0; i < 6; ++i) {
+        std::cout << "Grupo " << (i + 1) << " | Valor en simulador: " << reactor.getPrecursor(i) << "\n";
+    }
+
+    return 0;
+    /*
     Yaxkin::ReactorCore myReactor;
     double dt = 0.1; // Paso de tiempo de 100ms
     double total_time = 10.0;
@@ -24,4 +37,5 @@ int main() {
     }
 
     return 0;
+    */
 }

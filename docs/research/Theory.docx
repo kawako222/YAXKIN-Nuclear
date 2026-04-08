@@ -1,0 +1,28 @@
+### Fundamento Teórico: Equilibrio de Precursores de Neutrones
+
+**1. ¿Qué son los precursores de neutrones retardados?** Cuando un núcleo de Uranio-235 se fisiona, más del 99% de los neutrones se liberan casi instantáneamente ($10^\{-14\}$ segundos). A estos se les llama **neutrones prontos**. Si un reactor funcionara solo con ellos, cualquier cambio de potencia ocurriría tan rápido que sería humanamente imposible controlarlo.
+
+Sin embargo, una pequeña fracción de los neutrones (aproximadamente el 0.65%, denotado como $\\beta$) no surge de la fisión directa, sino del decaimiento radiactivo de ciertos fragmentos de fisión (como el Bromo-87 o el Yodo-137). A estos isótopos inestables se les llama **precursores**. Como su decaimiento toma desde fracciones de segundo hasta casi un minuto, actúan como un amortiguador o "freno temporal", dictando el ritmo al que la potencia del reactor puede cambiar. Para simplificar, la ingeniería nuclear agrupa a cientos de estos isótopos en 6 "grupos" matemáticos.
+
+**2. ¿Qué nos dice la Ecuación de Equilibrio?** Para que un reactor opere a potencia constante (estado estacionario), la población de neutrones no debe cambiar. Esto implica que la tasa a la que se crean los precursores mediante la fisión debe ser exactamente igual a la tasa a la que desaparecen por decaimiento radiactivo.
+
+La ecuación de equilibrio modela este balance exacto: $$C\_\{i, 0\} = \\frac\{\\beta\_i n\_0\}\{\\lambda\_i \\Lambda\}$$
+
+Donde:
+
+- $C\_\{i, 0\}$ es la concentración inicial (en equilibrio) del grupo de precursores $i$.
+
+- $\\beta\_i$ es la fracción de precursores producida por fisión para ese grupo específico.
+
+- $\\lambda\_i$ es la constante de decaimiento radiactivo del grupo (qué tan rápido desaparecen).
+
+- $\\Lambda$ es el tiempo de generación de neutrones prontos.
+
+- $n\_0$ es la potencia neutrónica inicial.
+
+La ecuación nos dice que, a mayor potencia nominal ($n\_0$) o mayor rendimiento de un grupo ($\\beta\_i$), habrá más precursores acumulados. Por el contrario, si decaen muy rápido (una $\\lambda\_i$ grande), su concentración retenida en equilibrio será menor.
+
+**3. ¿Por qué la potencia inicial es 1.0?** En cinética de reactores, trabajar con valores absolutos (ej. $3 \\times 10^8$ Watts o $10^\{13\}$ neutrones) puede introducir errores numéricos en la integración computacional debido a la magnitud de las cifras.
+
+Para solucionar esto, se utiliza la **Normalización**. Se define que la potencia nominal máxima del reactor equivale a $1.0$ (es decir, el 100%). Esto independiza al motor físico de la escala de la planta: la cinética neutrónica calculada será matemáticamente idéntica ya sea que estemos simulando un reactor de investigación de 10 kW o un PWR comercial de 3000 MW. Las unidades físicas reales (Watts, temperaturas) se calculan posteriormente escalando esta potencia normalizada a los parámetros de diseño termohidráulico de la planta.
+

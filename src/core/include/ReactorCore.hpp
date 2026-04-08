@@ -18,6 +18,7 @@ namespace Yaxkin {
         double getCoolantTemp() const { return t_coolant; }
         double getPower() const { return state(0); }
         double getReactivity() const { return current_reactivity; }
+        double getPrecursor(int index) const { return state(index + 1); }
 
     private:
         // Vector de estado: 
