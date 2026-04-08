@@ -6,8 +6,13 @@ set(CMAKE_CXX_STANDARD 17)
 # Buscar la librería Eigen
 find_package(Eigen3 REQUIRED)
 
-# Crear el ejecutable
-add_executable(yaxkin_core src/core/engine/main.cpp)
+include_directories(src/core/include)
 
-# Vincular Eigen al proyecto
+set(SOURCES 
+    src/core/engine/main.cpp 
+    src/core/engine/ReactorCore.cpp
+)
+
+# Crear el ejecutable
+add_executable(yaxkin_core ${SOURCES})
 target_link_libraries(yaxkin_core Eigen3::Eigen)
