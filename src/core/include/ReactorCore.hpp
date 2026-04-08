@@ -11,29 +11,26 @@ namespace Yaxkin {
     public:
         ReactorCore();
 
-        // Actualiza el estado del reactor en un paso de tiempo dt
+        // Estado del reactor en un paso de tiempo dt
         void update(double dt, double reactivity_input);
 
-        // Getters para ver qué está pasando
-        double getTemperature() const { return temperature; }
+        double getFuelTemp() const { return t_fuel; }
+        double getCoolantTemp() const { return t_coolant; }
         double getPower() const { return state(0); }
         double getReactivity() const { return current_reactivity; }
 
     private:
-        // Vector de estado ahora es de 9 posiciones: 
-        // [0] = Potencia
-        // [1..6] = Precursores de neutrones
-        // [7] = Concentración de Yodo-135
-        // [8] = Concentración de Xenón-135
-        Eigen::VectorXd state;        // Vector de estado: [0]=Potencia, [1..6]=Precursores
+        // Vector de estado: 
+        // [0] = Potencia, [1..6] = Precursores, 
+        // [7] = Yodo, [8] = Xenón, [9] = Prometio, [10] = Samario
+        Eigen::VectorXd state;        
 
         double current_reactivity;   
-        double t_fuel;             // Temperatura del combustible
-        double t_coolant;          // Temperatura del refrigerante (agua)
-        double temperature;           // Agregado para termohidráulica
-        double base_temperature;      // Agregado para termohidráulica
+        double t_fuel;             
+        double t_coolant;          
+        double base_temperature;      
 
-        Eigen::VectorXd computeDerivatives(const Eigen::VectorXd& current_state, double effective_rho);        void solveKinetics(double dt, double rho);
+        Eigen::VectorXd computeDerivatives(const Eigen::VectorXd& current_state, double effective_rho);
     };
 
 } // namespace Yaxkin
