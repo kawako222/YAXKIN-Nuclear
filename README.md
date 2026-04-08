@@ -1,4 +1,4 @@
-#  YAXKIN: Digital Twin & Intelligent Cybersecurity Shield
+#  YAXKIN: Digital Twin & Intelligent Cybersecurity Shield (PWR)
 
 **YAXKIN** (del Maya: *Sol Nuevo*) es un proyecto de ingeniería de software enfocado en la creación de un **Gemelo Digital** de un reactor nuclear para la investigación de **Ciberseguridad Industrial** e **Inteligencia Artificial**.
 
